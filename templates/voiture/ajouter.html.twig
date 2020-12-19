@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<h1> Ajouter une voiture : </h1>
+{{ form_start(form)}}
+<div>
+{{ form_widget(form.matricule , {'attr':{'placeholder':'Matricule de la voiture'}})}}
+</div>
+<div>
+{{ form_widget(form.marque , {'attr':{'placeholder':'marque de la voiture'}})}}
+</div>
+<div>
+{{ form_widget(form.couleur , {'attr':{'placeholder':'couleur de la voiture'}})}}
+</div>
+<div>
+{{ form_widget(form.carburant , {'attr':{'placeholder':'carburant de la voiture'}})}}
+</div>
+<div>
+{{ form_widget(form.description , {'attr':{'placeholder':'description de la voiture'}})}}
+</div>
+<div>
+{{ form_label(form.datemiseencirculation)}}
+{{ form_widget(form.datemiseencirculation)}}
+</div>
+<div>
+{{ form_widget(form.nbrplace , {'attr':{'placeholder':'nombre de place'}})}}
+</div>
+<div> 
+<input type="submit" name="" value="Enregistrer" class="btn btn-primary">
+</div>
+
+{{ form_end(form) }}
+{% endblock %}
