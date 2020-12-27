@@ -7,12 +7,30 @@
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
-
-<h1> Voiture </h1>
+<table>
+<tr>
+<td>
+<h1>Voitures</h1>
 <ul>
-{% for voiture in voitures %}
-<li> {{voiture.marque}} {{voiture.couleur}}{{voiture.Description}}{{voiture.nbrplace}} Places </li>
+{%for voiture in voitures%}
+<li>{{voiture.marque|e}} {{voiture.couleur|e}} {{voiture.description|e}} {{voiture.carburant}}
 {%endfor%}
-</ul>
-</ul>
+</td>
+<td>
+<h1>Etat</h1>
+<ul>
+{%for voiture in voitures%}
+<li>
+{%if voiture.disponibilite==1%}
+<a href="{{ path('louerbaymat', {mat: voiture.matricule}) }}" >louer</a><br>
+{%endif%}
+{%if voiture.disponibilite==0%}
+<a href="{{ path('rendrebaymat', {mat: voiture.matricule}) }}" >rendre</a><br>
+{%endif%}
+{%endfor%}
+</td>
+</tr>
+</table>
+<ul>
+
 {% endblock %}
